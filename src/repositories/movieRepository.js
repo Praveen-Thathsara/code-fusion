@@ -384,3 +384,36 @@ export default {
   getLeastRentedMovies,
   updateMovie,
 };
+
+// movieRepository.js
+
+const Movie = require('../models/movie'); // Assuming Movie is your mongoose model
+
+// Function to check if a movie exists by title and year
+async function getMovieByNameAndYear(title, year) {
+  try {
+    const movie = await Movie.findOne({ title: title, year: year });
+    return movie !== null; // Return true if movie exists, false otherwise
+  } catch (error) {
+    console.error('Error checking movie existence:', error);
+    throw error;
+  }
+}
+
+// Function to add a new movie to the database
+async function addMovie(movieData) {
+  try {
+    const newMovie = new Movie(movieData);
+    await newMovie.save();
+    return newMovie;
+  } catch (error) {
+    console.error('Error adding movie:', error);
+    throw error;
+  }
+}
+
+module.exports = {
+  getMovieByNameAndYear,
+  addMovie,
+};
+

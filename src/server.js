@@ -40,3 +40,19 @@ const server =
       });
 
 export default server;
+// server.js
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const movieRoutes = require('./routes/movieRoutes');
+
+app.use(bodyParser.json()); // For parsing JSON request bodies
+
+// Use movie routes
+app.use('/api/movie', movieRoutes);
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

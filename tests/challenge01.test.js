@@ -137,3 +137,50 @@ describe("Pre authentication tasks", () => {
     expect(passwordToggle.classList.contains("show")).toBeFalsy();
   });
 });
+
+
+function validatePassword(password) {
+  // Check for minimum length
+  if (password.length < 8) {
+    return { message: "Password should be at least 8 characters long" };
+  }
+
+  // Check for maximum length
+  if (password.length > 25) {
+    return { message: "Password must not be more than 25 characters long" };
+  }
+
+  // Check for required characters
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,25}$/;
+  if (!regex.test(password)) {
+    return { message: "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character" };
+  }
+
+  return { message: "User created successfully" }; // If all conditions are met
+}
+
+function loginUser(email, password) {
+  const user = getUserByEmail(email); // Fetch user by email (assumed function)
+
+  // Check if the user exists and password matches
+  if (!user || user.password !== password) {
+    return { message: "Invalid email or password" };
+  }
+
+  return { message: "Login successful" }; // If login is successful
+}
+
+const passwordInput = document.getElementById("password");
+const eyeIcon = document.getElementById("eye-icon");
+
+eyeIcon.addEventListener("click", function () {
+  // Toggle password visibility
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text"; // Show password
+    eyeIcon.classList.add("show"); // Change eye icon color
+  } else {
+    passwordInput.type = "password"; // Hide password
+    eyeIcon.classList.remove("show"); // Reset eye icon color
+  }
+});
+

@@ -573,3 +573,44 @@ export default {
   updateMovie,
   getBestRevenuedMovies
 };
+// movieController.js
+
+const movieRepository = require('../repositories/movieRepository');
+
+async function addMovie(req, res) {
+  const { title, year, dailyRentalRate, genres, imdbRating, posterUrl, bannerUrl, plot, runtime, directedBy, starring, releaseAt } = req.body;
+
+  try {
+    // Check if movie already exists
+    const movieExists = await movieRepository.getMovieByNameAndYear(title, year);
+    if (movieExists) {
+      return res.status(400).json({ message: 'Movie already exists.' });
+    }
+
+    // Add new movie if it doesn't exist
+    const movieData = {
+      title,
+      year,
+      dailyRentalRate,
+      genres,
+      imdbRating,
+      posterUrl,
+      bannerUrl,
+      plot,
+      runtime,
+      directedBy,
+      starring,
+      releaseAt,
+    };
+
+    const newMovie = await movieRepository.addMovie(movieData);
+    return res.status(201).json(newMovie);
+  } catch (error) {
+    console.error('Error adding movie:', error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
+
+module.exports = {
+  addMovie,
+};

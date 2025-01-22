@@ -6,3 +6,4 @@ package-lock.json
 .vscode
 *.sqlite3
 *.xml
+node_modules
