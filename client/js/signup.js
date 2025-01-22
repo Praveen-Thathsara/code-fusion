@@ -105,5 +105,5 @@ function validatePassword(password) {
   if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
     return "Password must contain at least one special character";
   }
-  return null; 
+  return "user created successfully"; 
 }
