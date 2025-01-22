@@ -80,11 +80,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   toggleIcon.addEventListener('click', function() {
     if (passwordInput.type === 'password') {
-      passwordInput.type = 'text'; // Show the password
-      toggleIcon.classList.add('show'); // Change the eye color
+      passwordInput.type = 'text';
+      toggleIcon.classList.add('show'); 
     } else {
-      passwordInput.type = 'password'; // Hide the password
-      toggleIcon.classList.remove('show'); // Revert the eye color
+      passwordInput.type = 'password'; 
+      toggleIcon.classList.remove('show'); 
     }
   });
 });
