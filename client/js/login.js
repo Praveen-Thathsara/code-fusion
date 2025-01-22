@@ -74,3 +74,17 @@ function displayError(message) {
   errorMessage.style.display = "block";
   errorMessage.innerHTML = message;
 }
+document.addEventListener('DOMContentLoaded', function() {
+  const passwordInput = document.getElementById('password');
+  const toggleIcon = document.querySelector('.password-toggle');
+
+  toggleIcon.addEventListener('click', function() {
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text'; // Show the password
+      toggleIcon.classList.add('show'); // Change the eye color
+    } else {
+      passwordInput.type = 'password'; // Hide the password
+      toggleIcon.classList.remove('show'); // Revert the eye color
+    }
+  });
+});
