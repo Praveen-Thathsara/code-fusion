@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReelHub</title>
+    <link href="styles/global.css" rel="stylesheet">
+    <link href="styles/bg.css" rel="stylesheet">
+    <link href="styles/rentals.css" rel="stylesheet">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/navigate.js"></script>
+    <script type="module" src="./js/rentals.js"></script>
+    <script src="https://kit.fontawesome.com/b3a0a4ca9f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section id="top">
+        <header class="header mb-3">
+            <div class="row d-flex align-items-center mt-0 pt-2 pb-2">
+                <div class="col-md-3">
+                    <h1 class="mb-0"><a class="logo-text" target="_self" href="home.html">ReelHub</a></h1>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <div class="prf-icon text-end pt-1 dropdown" style="display: flex; justify-content: end;">
+                        <span id="username" style="margin:5px 25px 0px 0px; font-size: 22px;"></span>
+                        <a href="#" class="dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class='prf-icon bx bx-user-circle fs-1' id="profileIcon"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" id="navLinksList">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="rentals.html">My Rentals</a></li>
+                            <li class="dropdown-item" id="logout" style="cursor: pointer;">Logout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <section id="main" style="margin-top: 65px;">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="col_red">Rentals</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="cardContainer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <div class="modal" tabindex="-1" id="addFeedbackModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title col_red"><b>Add your feedback</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="stars">
+                        <span class="star" id="1">☆</span>
+                        <span class="star" id="2">☆</span>
+                        <span class="star" id="3">☆</span>
+                        <span class="star" id="4">☆</span>
+                        <span class="star" id="5">☆</span>
+                    </div>
+                    <p>What do you think about the movie?</p>
+                    <input type="text" class="form-control" id="feedbackComment" placeholder="Enter your feedback">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveFeedback" style="background-color: #ff625a; border: 0; color:#fff">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

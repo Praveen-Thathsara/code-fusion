@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReelHub</title>
+    <link href="styles/global.css" rel="stylesheet" />
+    <link href="styles/moviePage.css" rel="stylesheet" />
+    <link href="styles/bg.css" rel="stylesheet" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/navigate.js"></script>
+    <script type="module" src="./js/moviePage.js"></script>
+    <script
+      src="https://kit.fontawesome.com/b3a0a4ca9f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div>
+      <header class="header mb-3">
+        <div
+          class="row d-flex align-items-center justify-content-between mt-0 pt-2 pb-2"
+        >
+          <div class="col-md-3">
+            <h1 class="mb-0">
+              <a class="logo-text" target="_self" href="home.html"> ReelHub</a>
+            </h1>
+          </div>
+          <div class="col-md-6"></div>
+
+          <div class="col-md-3">
+            <div
+              class="prf-icon text-end pt-1 dropdown"
+              style="display: flex; justify-content: end"
+            >
+              <span
+                id="username"
+                style="margin: 5px 25px 0px 0px; font-size: 22px"
+              ></span>
+              <a
+                href="#"
+                class="dropdown-toggle"
+                id="profileDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="prf-icon bx bx-user-circle fs-1" id="profileIcon"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="profileDropdown"
+                id="navLinksList"
+              ></ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="container-fluid white-overlay">
+        <div class="row" style="margin: 1rem 4rem 0 4rem">
+          <div class="col-lg-3 mb-sm-3 mb-md-3 ps-0">
+            <img
+              id="movie-poster"
+              src=""
+              class="img-fluid rounded movie-poster"
+              alt="movie poster"
+            />
+          </div>
+          <div class="col-lg-9 ps-sm-0 ps-lg-5">
+            <h1 id="movie-title" class="display-5 fw-bold mb-1">Title</h1>
+            <p class="fw-light mb-4">
+              <span id="movie-year" class="me-3">year</span>
+              <span id="movie-runtime">runtime</span>
+            </p>
+            <div id="genre-container" class="d-flex"></div>
+            <div
+              class="d-flex justify-content-start align-items-center mb-4 rating"
+            >
+              <div class="d-flex align-items-center me-4">
+                <img src="./assets//imdbLogo.png" style="height: 34px" />
+                <span id="imdb-rating">imdb rating</span
+                ><span class="ms-0">/10</span>
+              </div>
+              <div id="star-rating-container"></div>
+            </div>
+
+            <p id="movie-plot" class="text-break w-75 mb-4">plot</p>
+
+            <div class="d-flex justify-content-between w-75">
+              <p class="fs-5">
+                <span style="color: gray">Daily Rental Rate : </span
+                ><span>Rs.</span><span id="daily-rental">daily rental</span>
+              </p>
+              <div class="d-block">
+                <button
+                  class="btn btn-custom mb-4"
+                  id="rental-button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#rentalModal"
+                  data-bs-whatever="@mdo"
+                >
+                  Get this Movie
+                </button>
+                <button
+                  class="btn btn-custom-gift mb-4"
+                  id="gift-rental-button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#giftRentalModal"
+                  data-bs-whatever="@mdo"
+                >
+                  Gift this Movie
+                </button>
+              </div>
+            </div>
+
+            <div class="container p-0 m-0">
+              <div class="row" style="max-width: 50%">
+                <div class="col-3" style="color: gray">
+                  <p>Directed By</p>
+                  <p>Starring</p>
+                </div>
+                <div class="col-9">
+                  <p id="directed-by">director</p>
+                  <p id="starring">starring</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin: 1rem 0rem 1rem 3rem">
+          <div class="col-lg-3 ps-0"></div>
+          <div class="col-lg-9 ps-sm-0 ps-lg-5">
+            <hr class="mt-0" />
+            <div class="reviews p-0">
+              <div
+                class="row m-0 d-flex justify-content-between align-items-center mb-4 w-75"
+              >
+                <div class="col-7 p-0">
+                  <h1 class="fw-bold">Reviews</h1>
+                </div>
+                <div
+                  class="col-4 d-flex justify-content-end align-items-center"
+                >
+                  <label for="sort-feedback">Sort by </label>
+                  <select id="sort-feedback" class="form-select w-50 ms-3">
+                    <option value="default" selected>Featured</option>
+                    <option value="time-desc">Newest</option>
+                    <option value="time-asc">Oldest</option>
+                    <option value="rating-desc">Highest Rating</option>
+                    <option value="rating-asc">Lowest Rating</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row m-0 mb-4 w-75">
+                <div class="col-12 p-0">
+                  <button
+                    class="btn btn-custom"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addFeedbackModal"
+                  >
+                    Add Your Review
+                  </button>
+                </div>
+              </div>
+              <div id="feedback-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade rental-modal"
+      id="rentalModal"
+      tabindex="-1"
+      aria-labelledby="rentalModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="rentalModalLabel">Get this Movie</h2>
+            <button
+              type="button"
+              class="btn-close bg-light"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4 image-container">
+                <img
+                  src=""
+                  id="modal-movie-poster"
+                  alt="Movie Image"
+                  class="img-fluid pb-3"
+                />
+              </div>
+              <div class="col-md-6">
+                <form class="rental-form">
+                  <div class="form-group">
+                    <strong class="fs-5">Movie Title:</strong>
+                    <span id="modal-movie-title"></span>
+                  </div>
+                  <div class="form-group">
+                    <p>
+                      <strong class="fs-5">Daily Rental Rate:</strong>
+                      <span>Rs.</span><span id="modal-rental-rate"></span>
+                    </p>
+                  </div>
+                  <div class="form-group">
+                    <label for="no-of-days-renting" class="fs-5 fw-bold"
+                      >Days renting for:</label
+                    >
+                    <input
+                      type="number"
+                      id="no-of-days-renting"
+                      value="1"
+                      min="1"
+                      max="30"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <p>
+                      <strong class="fs-5">Total Amount:</strong>
+                      <span>Rs.</span><span id="total-amount"></span>
+                    </p>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  class="btn btn-custom"
+                  id="confirm-rental"
+                  type="button"
+                >
+                  Confirm Rental
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade rental-modal"
+      id="giftRentalModal"
+      tabindex="-1"
+      aria-labelledby="rentalModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="rentalModalLabel">Gift this Movie</h2>
+            <button
+              type="button"
+              class="btn-close bg-light"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4 image-container">
+                <img
+                  src=""
+                  id="gift-modal-movie-poster"
+                  alt="Movie Image"
+                  class="img-fluid pb-3"
+                />
+              </div>
+              <div class="col-md-6">
+                <form class="rental-form">
+                  <div class="form-group">
+                    <strong class="fs-5">Movie Title:</strong>
+                    <span id="gift-modal-movie-title"></span>
+                  </div>
+                  <div class="form-group">
+                    <p>
+                      <strong class="fs-5">Daily Rental Rate:</strong>
+                      <span>Rs.</span><span id="gift-modal-rental-rate"></span>
+                    </p>
+                  </div>
+                  <div class="form-group">
+                    <label for="gift-no-of-days-renting" class="fs-5 fw-bold"
+                      >Days renting for:</label
+                    >
+                    <input
+                      type="number"
+                      id="gift-no-of-days-renting"
+                      value="1"
+                      min="1"
+                      max="30"
+                      class="form-control"
+                    />
+
+                    <label for="receiver-email" class="fs-5 fw-bold mt-4"
+                      >Recipient email address :</label
+                    >
+                    <br />
+                    <select id="receiver-email"></select>
+                  </div>
+                  <div class="form-group">
+                    <p>
+                      <strong class="fs-5">Total Amount:</strong>
+                      <span>Rs.</span><span id="gift-total-amount"></span>
+                    </p>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-custom" id="confirm-gift" type="button">
+                  Confirm Gift
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="addFeedbackModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title col_red"><b>Add your feedback</b></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="stars">
+              <span class="star" id="1">☆</span>
+              <span class="star" id="2">☆</span>
+              <span class="star" id="3">☆</span>
+              <span class="star" id="4">☆</span>
+              <span class="star" id="5">☆</span>
+            </div>
+            <p>What do you think about the movie?</p>
+            <input
+              type="text"
+              class="form-control"
+              id="feedbackComment"
+              placeholder="Enter your feedback"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="saveFeedback"
+              style="background-color: #ff625a; border: 0; color: #fff"
+            >
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

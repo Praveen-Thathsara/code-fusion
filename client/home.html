@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReelHub</title>
+    <link href="styles/global.css" rel="stylesheet" />
+    <link href="styles/footer.css" rel="stylesheet" />
+    <link href="styles/bg.css" rel="stylesheet" />
+    <link href="styles/index.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script type="module" src="./js/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/b3a0a4ca9f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <section id="top">
+      <header class="header mb-3">
+        <div class="row d-flex align-items-center mt-0 pt-2 pb-2">
+          <div class="col-md-3">
+            <h1 class="mb-0">
+              <a class="logo-text" target="_self" href="home.html"> ReelHub</a>
+            </h1>
+          </div>
+          <div class="col-md-6">
+            <form
+              class="form-inline d-flex justify-content-center md-form form-sm"
+              id="searchForm"
+            >
+              <input
+                class="form-control form-control-sm mr-3 w-75 custom-search-bar"
+                type="text"
+                placeholder="Search"
+                aria-label="Search"
+                id="searchTerm"
+              />
+            </form>
+          </div>
+          <div class="col-md-3">
+            <div
+              class="prf-icon text-end pt-1 dropdown"
+              style="display: flex; justify-content: end"
+            >
+              <span
+                id="username"
+                style="margin: 5px 25px 0px 0px; font-size: 22px"
+              ></span>
+              <a
+                href="#"
+                class="dropdown-toggle"
+                id="profileDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="prf-icon bx bx-user-circle fs-1" id="profileIcon"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="profileDropdown"
+                id="navLinksList"
+              ></ul>
+            </div>
+          </div>
+        </div>
+      </header>
+    </section>
+
+    <section id="center" class="center_home">
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+            class=""
+            aria-current="true"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner" id="carouselInner"></div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="trend" class="pt-5">
+      <div class="container">
+        <div class="row trend_1">
+          <div class="col-md-6 col-6">
+            <div class="trend_1l">
+              <h4 class="mb-0">
+                <i class="fa fa-youtube-play align-middle col_red me-1"></i>
+                Latest <span class="col_red">Movies</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="row trend_2 mt-4" id="latestMoviesRow"></div>
+      </div>
+    </section>
+
+    <section id="upcome" class="pt-5">
+      <div class="container">
+        <div class="row trend_1">
+          <div class="col-md-6 col-6">
+            <div class="trend_1l">
+              <h4 class="mb-0">
+                <i class="fa fa-youtube-play align-middle col_red me-1"></i>
+                Suggested <span class="col_red">For You</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="row trend_2 mt-4">
+          <div class="row" id="suggestedMoviesRow"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="popular" class="pt-4 pb-5 bg_grey">
+      <div class="container">
+        <div class="row trend_1">
+          <div class="col-md-12">
+            <div class="trend_1l">
+              <h4 class="mb-0">
+                <i class="fa fa-youtube-play align-middle col_red me-1"></i>
+                Upcoming <span class="col_red">Movies</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+
+        <div id="upcomingMoviesRow" class="row mt-4"></div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <div class="poweredBy">Powered by</div>
+        <div class="d-flex justify-content-center" style="height: 40px">
+          <img src="./assets/devgrade_logo_white.png" />
+          <img src="./assets/99xLogoT.png" style="margin-left: 30px" />
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="./js/navigate.js"></script>
+</html>

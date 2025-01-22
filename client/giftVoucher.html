@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReelHub</title>
+
+    <link href="styles/global.css" rel="stylesheet" />
+    <link href="styles/giftVoucher.css" rel="stylesheet" />
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/navigate.js"></script>
+
+    <script type="module" src="./js/giftVoucher.js"></script>
+  </head>
+  <body>
+    <div>
+      <header class="header mb-3">
+        <div
+          class="row d-flex align-items-center justify-content-between mt-0 pt-2 pb-2"
+        >
+          <div class="col-md-3">
+            <h1 class="mb-0">
+              <a class="logo-text" target="_self" href="home.html"> ReelHub</a>
+            </h1>
+          </div>
+          <div class="col-md-6"></div>
+
+          <div class="col-md-3">
+            <div
+              class="prf-icon text-end pt-1 dropdown"
+              style="display: flex; justify-content: end"
+            >
+              <span
+                id="username"
+                style="margin: 5px 25px 0px 0px; font-size: 22px"
+              ></span>
+              <a
+                href="#"
+                class="dropdown-toggle"
+                id="profileDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="prf-icon bx bx-user-circle fs-1" id="profileIcon"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="profileDropdown"
+                id="navLinksList"
+              ></ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="container-fluid">
+          <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-xl-10 col-sm-6 col-12">
+              <button
+                id="sendGiftVoucher"
+                class="btn-custom mb-4"
+                data-bs-toggle="modal"
+                data-bs-target="#gift-voucher-modal"
+                data-bs-whatever="@mdo"
+              >
+                Send Gift Voucher
+              </button>
+              <h2>Unclaimed Gift Vouchers</h2>
+              <hr />
+              <ul id="unclaimed-gift-vouchers"></ul>
+              <h2 class="mt-5">Claimed/Expired Gift Vouchers</h2>
+              <hr />
+              <ul id="claimed-gift-vouchers"></ul>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div
+      class="modal fade"
+      id="gift-voucher-modal"
+      aria-hidden="true"
+      aria-labelledby="giftVoucherModalLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="giftVoucherModalLabel">
+              Send Gift Voucher
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="gift-voucher-form">
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="recipient-email"
+                  placeholder=""
+                  required
+                />
+                <label for="recipient-email">Recipient Email</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="voucher-amount"
+                  placeholder=""
+                  required
+                />
+                <label for="voucher-amount">Voucher Amount</label>
+              </div>
+              <button type="submit" class="btn btn-primary" id="confirm">
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

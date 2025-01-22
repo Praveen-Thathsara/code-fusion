@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Movie</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin-top: 30px;
+      }
+
+      /* Sidebar styles */
+      #sidebarMenu {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-right: 1px solid #ddd;
+      }
+
+      .nav-link {
+        font-size: 16px;
+        color: #5a5a5a;
+      }
+
+      .nav-link.active {
+        font-weight: bold;
+        color: #000;
+      }
+
+      /* Form styling */
+      .form-control {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        font-weight: bold;
+      }
+
+      /* Section spacing */
+      .mb-3 {
+        margin-bottom: 1.5rem !important;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 10px;
+      }
+
+      /* Main content styles */
+      main {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="mb-4">Add New Movie</h1>
+
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-2 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky pt-4">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="movielist.html"
+                  >Movie list</a
+                >
+              </li>
+              <li class="nav-item pt-3">
+                <a class="nav-link" href="genrelist.html">Genres</a>
+              </li>
+              <li class="nav-item pt-3">
+                <a class="nav-link" href="userlist.html">Users</a>
+              </li>
+              <li class="nav-item pt-3">
+                <a class="nav-link" href="#">Feedback</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3">
+          <h2 class="mb-4">Add Movie</h2>
+
+          <form id="movieForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="title" class="form-label">Movie Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder="Enter movie title"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="year" class="form-label">Year</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="year"
+                    placeholder="Enter year"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="dailyRentalRate" class="form-label"
+                    >Daily Rental Rate</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="dailyRentalRate"
+                    placeholder="Enter rental rate"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="genre" class="form-label">Genres</label>
+                  <div id="genreCheckBoxes"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="imdbRating" class="form-label">IMDB Rating</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="imdbRating"
+                    placeholder="Enter IMDB rating"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="posterUrl" class="form-label">Poster URL</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="posterUrl"
+                    placeholder="Enter poster URL"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="bannerUrl" class="form-label">Banner URL</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="bannerUrl"
+                    placeholder="Enter banner URL"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="plot" class="form-label">Plot</label>
+                  <textarea
+                    class="form-control"
+                    id="plot"
+                    name="plot"
+                    rows="4"
+                    placeholder="Enter movie plot"
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="runtime" class="form-label">Runtime</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="runtime"
+                    placeholder="e.g., 1h 30m"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="releaseAt" class="form-label">Release Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="releaseAt"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="directedBy" class="form-label">Directed By</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="directedBy"
+                    placeholder="Enter director"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="starring" class="form-label">Starring</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="starring"
+                    placeholder="Enter starring actors"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-success mt-4">
+              Add Movie
+            </button>
+          </form>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="js/addMovie.js" type="module"></script>
+  </body>
+</html>

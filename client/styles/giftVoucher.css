@@ -1,0 +1,35 @@
+body{
+    background-color: #F5F7FA;
+}
+
+main{
+    margin: 100px 50px;
+}
+
+.btn-primary{
+    background-color: #ff615a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* button */
+.btn-custom {
+    color: #fff;
+    background-color: #ff615a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-custom:hover {
+    background-color: #ff7171;
+  }
+
+    .btn-custom:disabled {
+        background-color: #ff6b6b;
+        cursor: not-allowed;
+    }

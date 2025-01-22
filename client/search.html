@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="appTitle">ReelHub</title>
+    <link href="styles/global.css" rel="stylesheet" />
+    <link href="styles/bg.css" rel="stylesheet" />
+    <link href="styles/search.css" rel="stylesheet" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script type="module" src="./js/search.js"></script>
+    <script
+      src="https://kit.fontawesome.com/b3a0a4ca9f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <section id="top">
+      <header class="header mb-3">
+        <div class="row d-flex align-items-center mt-0 pt-2 pb-2">
+          <div class="col-md-3">
+            <h1 class="mb-0">
+              <a class="logo-text" target="_self" href="home.html"> ReelHub</a>
+            </h1>
+          </div>
+          <div class="col-md-6">
+            <form
+              class="form-inline d-flex justify-content-center md-form form-sm"
+              id="searchForm"
+            >
+              <input
+                class="form-control form-control-sm mr-3 w-75 custom-search-bar"
+                type="text"
+                placeholder="Search"
+                aria-label="Search"
+                id="searchTerm"
+              />
+            </form>
+          </div>
+          <div class="col-md-3">
+            <div
+              class="prf-icon text-end pt-1 dropdown"
+              style="display: flex; justify-content: end"
+            >
+              <span
+                id="username"
+                style="margin: 5px 25px 0px 0px; font-size: 22px"
+              ></span>
+              <a
+                href="#"
+                class="dropdown-toggle"
+                id="profileDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="prf-icon bx bx-user-circle fs-1" id="profileIcon"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="profileDropdown"
+                id="navLinksList"
+              >
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li>
+                  <a class="dropdown-item" href="rentals.html">My Rentals</a>
+                </li>
+                <li class="dropdown-item" id="logout" style="cursor: pointer">
+                  Logout
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+    </section>
+    <section id="main" style="margin-top: 80px;">
+      <div class="container px-5">
+        <div class="row gx-5 px-5" id="movieResults">
+          <div class="col-md-4">
+            <div class="card card-bg" style="height: 520px;">
+                <img
+                  src="/client/img/18.jpg"
+                  class="card-img-top"
+                  alt="..."
+                  style="height: 380px;"
+                />
+                <div class="card-body" style="color: whitesmoke;">
+                    <h5 class="card-title col_red">Avengers</h5>
+                    <div class="card-text"> Genres</div>
+                    <div class="card-text">2007</div>
+                    <div class="card-text">Daily Rental rate: $5.99</div>                    
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-bg" style="height: 520px;">
+              <img
+                src="/client/img/18.jpg"
+                class="card-img-top"
+                alt="..."
+                style="height: 380px;"
+              />
+              <div class="card-body" style="color: whitesmoke;">
+                  <h5 class="card-title col_red">Avengers</h5>
+                  <div class="card-text"> Genres</div>
+                  <div class="card-text">2007</div>
+                  <div class="card-text">Daily Rental rate: $5.99</div>                    
+                </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-bg" style="height: 520px;">
+              <img
+                src="/client/img/18.jpg"
+                class="card-img-top"
+                alt="..."
+                style="height: 380px;"
+              />
+              <div class="card-body" style="color: whitesmoke;">
+                  <h5 class="card-title col_red">Avengers</h5>
+                  <div class="card-text"> Genres</div>
+                  <div class="card-text">2007</div>
+                  <div class="card-text">Daily Rental rate: $5.99</div>                    
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <nav aria-label="Page navigation example" class="mt-3">
+      <ul class="pagination justify-content-center">
+        <li class="page-item page-link" id="previousPage" style="background-color: transparent; border: none; color: whitesmoke;">Previous</li>
+        <li class="page-item page-link" id="pageOne" style="background-color: transparent; border: none; color: whitesmoke;">1</li>
+        <li class="page-item page-link" id="pageTwo" style="background-color: transparent; border: none; color: whitesmoke;">2</li>
+        <li class="page-item page-link" id="pageThree" style="background-color: transparent; border: none; color: whitesmoke;">3</li>
+        <li class="page-item page-link" id="nextPage" style="background-color: transparent; border: none; color: whitesmoke;">Next</li>
+      </ul>
+    </nav>
+  </body>
+</html>

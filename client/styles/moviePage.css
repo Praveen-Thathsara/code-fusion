@@ -1,0 +1,146 @@
+body {
+  background: linear-gradient(to bottom right, #000, #2e092e, #460c46, #000);
+  color: #ffffff !important;
+}
+
+.white-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.09);
+  padding: 100px 0 0 0;
+  min-width: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.movie-poster {
+  min-width: 300px;
+}
+
+@media screen and (min-width: 992px) {
+  .movie-poster {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  
+  .movie-poster {
+    width: 40%;
+    height: auto;
+  }
+
+  .reviews {
+    margin-top: 2rem;
+  }
+
+  body span {
+    font-size: medium;
+  }
+
+  .btn-custom{
+    font-size: small;
+    padding: 5px;
+  }
+
+  
+}
+
+/* movie details */
+
+/* movie genres */
+.genre-tags {
+  padding: 0rem 0.6rem;
+  margin-right: 1rem;
+  background-color: #ff615a;
+  border-radius: 1rem;
+}
+
+/*rating*/
+.rating div span {
+  font-size: 12px;
+}
+
+.rating span {
+  margin-left: 4px;
+}
+
+/* star rating */
+.star {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 2px;
+}
+
+.rating .star:nth-child(5) {
+  margin-right: 0;
+}
+
+/* button */
+.btn-custom {
+  color: #fff;
+  background-color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+.btn-custom:hover {
+  color: #fff;
+  background-color: #ff7171;
+}
+
+/* gift button */
+.btn-custom-gift {
+  color: #fff;
+  background-color: #330843;
+  border-color: #ff6b6b;
+}
+
+.btn-custom-gift:hover {
+  color: #fff;
+  background-color: #46025f;
+}
+
+/* rental modal */
+
+.modal-content {
+  background-color: #00000066;
+  color: #fff;
+}
+
+.rental-modal {
+  background-color: #00000072;
+  color: #fff;
+  color: #ff615a;
+  font-size: 1.5rem;
+}
+
+.modal-title {
+  color: #ff615a;
+}
+
+.modal.fade.rental-modal.show {
+  backdrop-filter: blur(5px);
+}
+
+.rental-form {
+  margin: 1rem; 
+}
+
+.form-group {
+  margin-bottom: 3rem; 
+}
+
+.form-control {
+  width: 100%; 
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc; 
+}
+
+
+
+
+
