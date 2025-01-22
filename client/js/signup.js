@@ -20,23 +20,24 @@ window.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
 
+    // Validate password
     const validationMessage = validatePassword(password);
     if (validationMessage) {
-        displayError(validationMessage);
-        return;
-      }
+      displayError(validationMessage);
+      return;
+    }
 
+    // Confirm password match
     if (password !== confirmPassword) {
-        displayError("Passwords do not match.");
-        return;
-      }
-
+      displayError("Passwords do not match.");
+      return;
+    }
 
     try {
       const response = await signupUser(firstName, lastName, email, password);
 
       if (!response.error) {
-        window.location.href = ../client/login.html;
+        window.location.href = "../client/login.html"; // Corrected
       } else {
         displayError(response.message);
       }
@@ -49,7 +50,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 async function signupUser(firstName, lastName, email, password) {
   try {
-    const response = await fetch(${BASE_AUTH_URL}/signup, {
+    const response = await fetch(`${BASE_AUTH_URL}/signup`, { // Corrected
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,12 +63,7 @@ async function signupUser(firstName, lastName, email, password) {
       }),
     });
 
-    let data;
-    try {
-      data = await response.json();
-    } catch (err) {
-      return { error: true, message: "Invalid response from server." };
-    }
+    const data = await response.json();
 
     if (response.ok) {
       return { error: false, ...data };
@@ -86,6 +82,7 @@ function displayError(message) {
   errorMessage.style.display = "block";
   errorMessage.innerHTML = message;
 }
+
 function validatePassword(password) {
   if (password.length < 8) {
     return "Password should be at least 8 characters long";
@@ -105,5 +102,5 @@ function validatePassword(password) {
   if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
     return "Password must contain at least one special character";
   }
-  return "user created successfully"; 
+  return  "user create successfully"; 
 }
